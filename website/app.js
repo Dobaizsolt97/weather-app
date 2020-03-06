@@ -62,11 +62,9 @@ const updateUi = async (url = "") => {
     const allData = await request.json();
 
     const lastResponse = allData.entryes[allData.entryes.length - 1];
-    lastContent.innerText = lastResponse.userResponse;
-    lastDate.innerText = lastResponse.date;
-    lastTemp.innerText = `${(lastResponse.temperature - 273).toFixed(
-      1
-    )} celsius`;
+    lastContent.innerHTML = `<p>${lastResponse.userResponse}</p>`;
+    lastDate.innerHTML = `<h4>date: ${lastResponse.date}<h4>`;
+    lastTemp.innerHTML = `<h4>temperature: ${lastResponse.temperature} degrees<h4>`;
   } catch (error) {
     console.log("error", error);
   }

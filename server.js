@@ -1,6 +1,6 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {
-  entryes: [{ temperature: 20, date: "3 oct", userResponse: "meh" }]
+  entryes: []
 };
 
 // Require Express to run server and routes

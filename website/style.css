@@ -8,25 +8,36 @@ body {
 }
 
 #app {
-  display: grid;
-  grid-auto-rows: minmax(150px, auto);
-  /* grid-template-columns:  */
-  height: 100vh;
-  background: #f23557;
-  color: #f0d43a;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  grid-gap: 1em;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: #845ec2;
+  color: #ffc75f;
   font-size: 20px;
   font-family: "Oswald", sans-serif;
+}
+.title {
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.74);
 }
 
 .holder {
   display: flex;
-  justify-content: center;
-  width: 100%;
   flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+  width: 60%;
+  margin: 0 auto;
 }
-
+.holder label {
+  text-align: left;
+}
+.holder input {
+  width: 100%;
+}
 .entry {
   background: rgba(59, 74, 107, 0.4);
 }
@@ -37,10 +48,13 @@ body {
 
 #date {
   color: white;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 #temp {
   color: white;
+  display: inline-block;
 }
 
 #content {
@@ -49,12 +63,14 @@ body {
 
 .headline {
   color: white;
+  font-size: 30px;
 }
 .title {
   color: white;
 }
 #generate:hover {
-  background-color: tomato;
+  background-color: #2c73d2;
+  color: white;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -68,21 +84,22 @@ input {
   height: 60px;
   width: 320px;
   background: #22b2da;
-  color: #f0d43a;
+  color: #333;
   font-size: 20px;
   font-family: "Oswald", sans-serif;
   border: none;
 }
 
 button {
-  width: 400px;
-  height: 100px;
+  width: 50%;
+  height: 50px;
   background: #3b4a6b;
-  color: #f0d43a;
+  color: #ffc75f;
   font-size: 26px;
   font-family: "Oswald", sans-serif;
   border: none;
-  box-shadow: 2px 4px 5px #444;
+
+  margin: 10px auto;
 }
 h1 {
   font-size: 36px;
@@ -90,7 +107,7 @@ h1 {
 
 textarea {
   background: #22b2da;
-  color: #f0d43a;
+  color: #333;
   font-size: 20px;
   font-family: "Oswald", sans-serif;
 }
@@ -104,18 +121,40 @@ button:focus {
 /* Style for Placeholder Text*/
 ::placeholder {
   /* Firefox, Chrome, Opera */
-  color: #f0d43a;
+  color: #ffc75f;
   font-family: "Oswald", sans-serif;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #f0d43a;
+  color: #ffc75f;
   font-family: "Oswald", sans-serif;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #f0d43a;
+  color: #ffc75f;
   font-family: "Oswald", sans-serif;
+}
+
+@media (max-width: 800px) {
+  .holder {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .headline {
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  label {
+    font-size: 21px;
+  }
+  #date h4,
+  #temp h4 {
+    font-size: 15px;
+  }
 }
