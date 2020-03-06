@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 body {
   background: #fffff8;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -48,6 +52,9 @@ body {
 }
 .title {
   color: white;
+}
+#generate:hover {
+  background-color: tomato;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
