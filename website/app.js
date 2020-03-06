@@ -14,6 +14,15 @@ const lastContent = document.getElementById("content");
 let d = new Date();
 let newDate = d.getMonth() + "." + d.getDate() + "." + d.getFullYear();
 
+// uppon click we check if there is a zip value
+
+button.addEventListener("click", () => {
+  const zip = document.getElementById("zip").value;
+  if (zip) {
+    getWeather(zip, baseUrl, apiKey);
+  }
+});
+
 //fetch to the api
 const getWeather = async (zip, baseUrl, apiKey) => {
   const res = await fetch(`${baseUrl}${zip}&appid=${apiKey}`);
@@ -27,15 +36,6 @@ const getWeather = async (zip, baseUrl, apiKey) => {
   postData("http://localhost:8080/", object);
   getAndUpdate();
 };
-
-// uppon click we check if there is a zip value
-
-button.addEventListener("click", () => {
-  const zip = document.getElementById("zip").value;
-  if (zip) {
-    getWeather(zip, baseUrl, apiKey);
-  }
-});
 
 const postData = async (url = "", object) => {
   const result = await fetch(url, {
