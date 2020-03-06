@@ -25,6 +25,7 @@ const getWeather = async (zip, baseUrl, apiKey) => {
     userResponse: feelings.value
   };
   postData("http://localhost:8080/", object);
+  getAndUpdate();
 };
 
 // uppon click we check if there is a zip value
@@ -45,20 +46,22 @@ const postData = async (url = "", object) => {
     },
     body: JSON.stringify(object)
   });
-
-  updateUi("http://localhost:8080/values");
 };
 
-/* making a call to our stored values and accesing the last one */
-const updateUi = async (url = "") => {
+const getAndUpdate = async (url = "http://localhost:8080/values") => {
   const request = await fetch(url);
   try {
     const allData = await request.json();
     const lastResponse = allData.entryes[allData.entryes.length - 1];
-    lastContent.innerHTML = `<p>${lastResponse.userResponse}</p>`;
-    lastDate.innerHTML = `<h4>date: ${lastResponse.date}<h4>`;
-    lastTemp.innerHTML = `<h4>temperature: ${lastResponse.temperature} degrees<h4>`;
+    updateUi(lastResponse);
   } catch (error) {
     console.log("error", error);
   }
+};
+
+updateUi = async object => {
+  const { date, temperature, userResponse } = object;
+  lastContent.innerHTML = `<p>${userResponse}</p>`;
+  lastDate.innerHTML = `<h4>date: ${date}<h4>`;
+  lastTemp.innerHTML = `<h4>temperature: ${temperature} degrees<h4>`;
 };
