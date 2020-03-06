@@ -36,7 +36,7 @@ app.post("/", function(req, res) {
   res.json("added");
 });
 
-app.get("/cat", (req, res) => {
+app.get("/values", (req, res) => {
   console.log(projectData);
   res.send(projectData);
 });
