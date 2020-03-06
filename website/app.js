@@ -45,14 +45,8 @@ const postData = async (url = "", object) => {
     },
     body: JSON.stringify(object)
   });
-  const answer = await result.json();
 
   updateUi("http://localhost:8080/values");
-};
-const testObject = {
-  temperature: 20,
-  date: "now",
-  userResponse: "sick"
 };
 
 /* making a call to our stored values and accesing the last one */
@@ -60,7 +54,6 @@ const updateUi = async (url = "") => {
   const request = await fetch(url);
   try {
     const allData = await request.json();
-
     const lastResponse = allData.entryes[allData.entryes.length - 1];
     lastContent.innerHTML = `<p>${lastResponse.userResponse}</p>`;
     lastDate.innerHTML = `<h4>date: ${lastResponse.date}<h4>`;

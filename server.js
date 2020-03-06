@@ -26,6 +26,7 @@ const server = app.listen(port, () => {
   console.log(`running on port ${port}`);
 });
 
+// post route that adds recived values to an existing array
 app.post("/", function(req, res) {
   const { temperature, date, userResponse } = req.body;
   projectData.entryes.push({
@@ -36,7 +37,7 @@ app.post("/", function(req, res) {
   res.json("added");
 });
 
+// get route that returns the stored values
 app.get("/values", (req, res) => {
-  console.log(projectData);
   res.send(projectData);
 });
